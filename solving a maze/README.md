@@ -23,31 +23,34 @@ Next, we have to check if the new candidate position in the Maze is feasable.
 In such case we move on and start the same process until the exit door is reached.
 
 ## Backtracking is your friend!
+
+This is the pseudo-c-code that solves the problem:
 ```c
 bool solvemaze(int grid[N][N],int current_row,int current_col)
 {
   if(Exit_condition == true)
   {
+    // we are done!
     return true;
   }
-  else
+  else // path is not complete
   {
-    for(each_possible_movement) // find a candidate
+    for(each_possible_movement)                         // find a candidate
     {
-      if(movement_is_feasable)
+      if(movement_is_feasable)                          // check if it is feasable
       {
-        update_position(); 
+        update_position();                              // update path
         
-        if(solvemaze(grid,current_row,current_col))
+        if(solvemaze(grid,current_row,current_col))     // move to complete path
           return true;
       }
-      else
+      else                                              // here, we have reach a blocking point, we can't move
       {
-        restore_position();
+        restore_position();                             // so, we have to revert the last decision
       }
    }
  }
- return false;
+ return false;                                          // backtracking is trigger here
 }
 ```
 
