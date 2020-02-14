@@ -24,12 +24,32 @@ In such case we move on and start the same process until the exit door is reache
 
 ## Backtracking is your friend!
 ```c
-int a=0;
+bool solvemaze(int grid[N][N],int current_row,int current_col)
+{
+  if(Exit_condition == true)
+  {
+    return true;
+  }
+  else
+  {
+    for(possible_movements)
+    {
+      update_position};
+      if(solvemaze(grid,current_row,current_col))
+      {
+        return true;
+      }
+      }else
+      {
+        restore_position();
+      }
+    }
+    return false;
+  
+}
 ```
 
-'''cpp
-int a = 0; 
-'''
+
 
 
 
