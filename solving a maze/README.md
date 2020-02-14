@@ -23,6 +23,9 @@ Next, we have to check if the new candidate position in the Maze is feasable.
 In such case we move on and start the same process until the exit door is reached.
 
 ## Backtracking is your friend!
+```c
+int a=0;
+```
 
 '''cpp
 int a = 0; 
