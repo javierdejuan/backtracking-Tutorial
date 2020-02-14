@@ -4,9 +4,8 @@ The purpose of this example is to find a path between an entry point and an exit
 The Maze, for simplicity is going to be represented as an NxN Matrix.
 I have add print functions to easily understand how backtrack works in this kind of problems.
 <p align="center">
-  <img width="400" height="200" src="https://github.com/javierdejuan/stuff/blob/master/differential_geometry/grid%20web.png">
+  <img width="400" height="300"  src=https://github.com/javierdejuan/backtrackingTutorial/blob/master/solving%20a%20maze/solving%20a%20maze.gif>
 </p>
 <p align="center">
-Equirectangular grid
+Soving a Maze Backtracking process.
 </p>
-![Solving a Maze Demo](solving a maze.gif)
