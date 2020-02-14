@@ -32,20 +32,22 @@ bool solvemaze(int grid[N][N],int current_row,int current_col)
   }
   else
   {
-    for(possible_movements)
+    for(each_possible_movement) // find a candidate
     {
-      update_position};
-      if(solvemaze(grid,current_row,current_col))
+      if(movement_is_feasable)
       {
-        return true;
+        update_position(); 
+        
+        if(solvemaze(grid,current_row,current_col))
+          return true;
       }
-      }else
+      else
       {
         restore_position();
       }
-    }
-    return false;
-  
+   }
+ }
+ return false;
 }
 ```
 
