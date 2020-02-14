@@ -3,5 +3,10 @@
 The purpose of this example is to find a path between an entry point and an exit point in a Maze.
 The Maze, for simplicity is going to be represented as an NxN Matrix.
 I have add print functions to easily understand how backtrack works in this kind of problems.
-
+<p align="center">
+  <img width="400" height="200" src="https://github.com/javierdejuan/stuff/blob/master/differential_geometry/grid%20web.png">
+</p>
+<p align="center">
+Equirectangular grid
+</p>
 ![Solving a Maze Demo](solving a maze.gif)
