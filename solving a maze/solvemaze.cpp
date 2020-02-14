@@ -80,7 +80,7 @@ void printGrid(int grid[N][N], vector<point>& path, int rowg, int colg, const in
 		for (int col = 0; col < N; col++) {
 
 			if (lookup[row][col] == -1)
-				cout << "+" << "\t";
+				cout << "-" << "\t";
 			else if (col == colg && row == rowg)
 				cout << "*" << grid[row][col] << "\t";
 			else
@@ -210,15 +210,14 @@ int main()
 {
 
 	int grid[N][N] = { {0, 0, 1, 1, 0, 1, 1, 0, 0},
-			{1, 0, 0, 0, 0, 1, 0, 0, 0},
+			{1, 1, 0, 0, 0, 1, 0, 0, 0},
 			{0, 0, 1, 1, 0, 1, 0, 0, 1},
-			{0, 0, 1, 0, 0, 1, 0, 1, 0},
-			{1, 0, 0, 1, 0, 1, 0, 0, 1},
-			{0, 0, 0, 1, 0, 0, 1, 0, 0},
+			{0, 0, 0, 0, 0, 1, 0, 1, 0},
+			{1, 1, 0, 1, 0, 1, 0, 0, 1},
+			{0, 0, 0, 1, 0, 0, 1, 1, 0},
 			{0, 1, 1, 1, 1, 1, 0, 1, 0},
-			{0, 0, 0, 1, 1, 1, 1, 1, 0},
-			{0, 0, 0, 0, 0, 1, 0, 1, 0} };
-
+			{1, 1, 0, 1, 0, 1, 1, 1, 0},
+			{1, 0, 0, 0, 0, 1, 0, 1, 0} };
 	vector <point> path;
 	printGrid(grid, path, 0, 0);
 	solvemaze(path, grid, -1, -1);
