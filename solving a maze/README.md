@@ -17,3 +17,16 @@ Given a position in the Maze, defined by it's row and col number, we have 8 poss
 North - North East - East - South East - South - South West - West - North West
   
 </p>
+
+Moving to the East, for example, means adding 1 to current column location and so on.
+Next, we have to check if the new candidate position in the Maze is feasable. 
+In such case we move on and start the same process until the exit door is reached.
+
+## Backtracking is your friend!
+
+'''cpp
+int a = 0; 
+'''
+
+
+
