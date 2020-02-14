@@ -14,10 +14,6 @@ Soving a Maze Backtracking process.
 
 Given a position in the Maze, defined by it's row and col number, we have 8 possibilities to move on:
 <p align="center">
-      N   
-N-W      N-E
- W        E
-S-W      S-E
-      S
+North - North East - East - South East - South - South West - West - North West
   
 </p>
