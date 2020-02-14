@@ -1,7 +1,9 @@
 // solvemaze.cpp 
+/*
+	A NxN matriz represents a maze. Cells with number 0 are passing cells. Cells with number 1 are no passing cells.
+	You have to find a path from cell [0,0] to cell [N-1,N-1] avoind non passing cells.
 
-// solvemaze.cpp 
-//
+*/
 
 #include "pch.h"
 #include <iostream>
@@ -127,40 +129,40 @@ bool solvemaze(vector <point>& path, int grid[N][N], int row, int col)
 	else // path is incomplete, let's complete it
 	{
 
-		int row_c = 0;					// here we are going to store our new candidate
+		int row_c = 0;	// here we are going to store our new candidate
 		int col_c = 0;
 
-		int revrow = 0;				    // here we are going to store previous candidate
+		int revrow = 0;	// here we are going to store previous candidate
 		int revcol = 0;
 
-		depth++;						// we update the stack count of recursive calls
+		depth++;				// we update the stack count of recursive calls
 
-		for (int i = 0; i < 8; i++)			   // for each movement allowed
+		for (int i = 0; i < 8; i++)			   // for each movement allowed in our movem array
 		{
 
 			row_c = movem[i][0] + row;		   // instanciating candidate
 			col_c = movem[i][1] + col;
 
-			if ((row_c >= 0 && col_c >= 0) &&  // if candidate is in the grid
-				(row_c < N  && col_c < N) &&  // if candidate is in the grid
-				grid[row_c][col_c] == 0 &&  // if candidate is a non blocking point
-				lookup[row_c][col_c] != -1)	   // if candidate has not been tested
+			if ((row_c >= 0 && col_c >= 0) &&	// if candidate is in the grid
+				(row_c < N  && col_c < N) &&	// if candidate is in the grid
+				grid[row_c][col_c] == 0 &&	// if candidate is a non blocking point
+				lookup[row_c][col_c] != -1)	// if candidate has not been tested
 			{
 
-				grid[row_c][col_c] = 3;		   // write grid cell with value 3
-				revrow = row;				   // Keep previous candidate 
-				revcol = col;				   // (if backtracking is needed)
-				row = row_c;				   // move to next candidate
+				grid[row_c][col_c] = 3;			// write grid cell with value 3
+				revrow = row;				// Keep previous candidate 
+				revcol = col;				// (if backtracking is needed)
+				row = row_c;				// move to next candidate
 				col = col_c;
 
-				point candidate;			   // store point for printing path
+				point candidate;			// store point for printing path
 
 				candidate.x = row;
 				candidate.y = col;
 
 				path.push_back(candidate);		// update path for printing purposes
 
-				moves++;						// update moves
+				moves++;				// update moves
 				printGrid(grid, path, row, col, depth, moves);
 
 				// now move to the next candidate, recursive call
@@ -183,13 +185,13 @@ bool solvemaze(vector <point>& path, int grid[N][N], int row, int col)
 
 					// we need to resotre previous values
 
-					grid[row_c][col_c] = 0;			// initial grid value
-					lookup[row_c][col_c] = -1;	    // store invalid candidate to avoid repeating same searchs
-					col = revcol;					// revert to previous candidate column
-					row = revrow;					// revert to previoous candidate row
-					moves++;						// update number of decisions
-					depth--;						// since backtracking is triggered, we move up in the stack of recursive calls
-					path.pop_back();				// update path 
+					grid[row_c][col_c] = 0;		// initial grid value
+					lookup[row_c][col_c] = -1;	// store invalid candidate to avoid repeating same searchs
+					col = revcol;			// revert to previous candidate column
+					row = revrow;			// revert to previoous candidate row
+					moves++;			// update number of decisions
+					depth--;			// since backtracking is triggered, we move up in the stack of recursive calls
+					path.pop_back();		// update path 
 					printGrid(grid, path, row, col, depth, moves);
 
 					// end backtracking coding block
@@ -208,14 +210,14 @@ int main()
 {
 
 	int grid[N][N] = { {0, 0, 1, 1, 0, 1, 1, 0, 0},
-						{1, 0, 0, 0, 0, 1, 0, 0, 0},
-						{0, 0, 1, 1, 0, 1, 0, 0, 1},
-						{0, 0, 1, 0, 0, 1, 0, 1, 0},
-						{1, 0, 0, 1, 0, 1, 0, 0, 1},
-						{0, 0, 0, 1, 0, 0, 1, 0, 0},
-						{0, 1, 1, 1, 1, 1, 0, 1, 0},
-						{0, 0, 0, 1, 1, 1, 1, 1, 0},
-						{0, 0, 0, 0, 0, 1, 0, 1, 0} };
+			{1, 0, 0, 0, 0, 1, 0, 0, 0},
+			{0, 0, 1, 1, 0, 1, 0, 0, 1},
+			{0, 0, 1, 0, 0, 1, 0, 1, 0},
+			{1, 0, 0, 1, 0, 1, 0, 0, 1},
+			{0, 0, 0, 1, 0, 0, 1, 0, 0},
+			{0, 1, 1, 1, 1, 1, 0, 1, 0},
+			{0, 0, 0, 1, 1, 1, 1, 1, 0},
+			{0, 0, 0, 0, 0, 1, 0, 1, 0} };
 
 	vector <point> path;
 	printGrid(grid, path, 0, 0);
