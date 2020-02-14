@@ -1,4 +1,4 @@
-### Solving a Maze
+# Solving a Maze
 
 The purpose of this example is to find a path between an entry point and an exit point in a Maze.
 The Maze, for simplicity is going to be represented as an NxN Matrix. We start at position [0,0] and we have to find a path until reaching position [8,8]. Cells numbered with 0 are passing cells and cells numbered with 1 are non-passing cells. Everytime we move into a new cell, this cell is labeled with a 3. 
@@ -53,8 +53,9 @@ bool solvemaze(int grid[N][N],int current_row,int current_col)
  return false;                                          // backtracking is trigger here
 }
 ```
+This piece of code has a problem: We can search again an again the same sub-problems, which is time and ressources consumming. To avoid this, we need to check if the current candidate has already been tested by other branch.
 
-
+## The Lookup Table
 
 
 
