@@ -42,13 +42,13 @@ bool solvemaze(int grid[N][N],int current_row,int current_col)
         update_position();                              // update path
         
         if(solvemaze(grid,current_row,current_col))     // move to complete path
-          return true;
-      }
-      else                                              // here, we have reach a blocking point, we can't move
-      {
-        restore_position();                             // so, we have to revert the last decision
-      }
-   }
+  
+          return true;                                  // we have finished!
+       
+        else                                             // here, we have reach a blocking point, we can't move
+          restore_position();                            // so, we have to revert the last decision
+      }                                                  // end if
+    }                                                    // end for
  }
  return false;                                          // backtracking is trigger here
 }
