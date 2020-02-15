@@ -71,8 +71,16 @@ However this piece of code has a problem: We can search again an again the same 
 
 ## The Lookup Table
 
-To solve this problem, we are going to add an extra condition for our feasability function. If the current candidate has already been tested we will skip to next candidate. This can be easily done through a lookup Table which will be an array just like grid.
-When then define a global array like this ``` int lookup[N][N]={0}```. When backtracks ocurrs we will write -1 in the current cell position. Last, in the feasibility function, we will check if the candidate has not already been tested.
+To solve this problem, we are going to add an extra condition for our feasability function. If the current candidate has already been tested we will skip to next candidate. This can be easily done through a lookup table which will be an array just like the grid.
+We will then define a global array like this ``` int lookup[N][N]={0}```. When backtracks ocurrs we will write -1 in the current cell position. Last, in the feasibility function, we will check if the candidate has not already been tested.
+
+## Final thoughts
+
+Coding tricky algorithms using recursive calls and backtracking techniques can be very frustrating. Sometimes debug facilities given through you IDE does not help us so much since we lost the big picture. To make code experience pleasant and fun, i learnt in my early years as a programmer to add extra code to understand what is going on and to follow code execution. This is more than a logging feature to record exceptions and errors. Coding that way you will save time and will have a better understanding what you are coding (sometimes may be very different from your initial idea). Hope it helps.
+
+
+
+
 
 
 
