@@ -57,8 +57,9 @@ bool solvemaze(int grid[N][N],int current_row,int current_col)
 To see how this pseudo-code works, let's dump the initial stack:
 
 <p align="center">
-  <img width="520" height="390"  src="https://github.com/javierdejuan/backtracking-Tutorial/blob/master/solving%20a%20maze/stack.PNG
-">
+  <img width="520" height="390"  
+
+   src="https://github.com/javierdejuan/backtracking-Tutorial/blob/master/solving%20a%20maze/stack.PNG">
 </p>
 <p align="center">
 Stack calls to solvemaze function.
