@@ -53,6 +53,9 @@ bool solvemaze(int grid[N][N],int current_row,int current_col)
  return false;                                          // backtracking is trigger here
 }
 ```
+
+To see how this pseudo-code works, let's dump the initial stack:
+
 This piece of code has a problem: We can search again an again the same sub-problems, which is time and ressources consumming. To avoid this, we need to check if the current candidate has already been tested by other branch.
 
 ## The Lookup Table
