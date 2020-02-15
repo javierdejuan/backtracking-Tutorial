@@ -1,6 +1,6 @@
 // solvemaze.cpp 
 /*
-	A NxN matriz represents a maze. Cells with number 0 are passing cells. Cells with number 1 are no passing cells.
+	A NxN matrix represents a maze. Cells with number 0 are passing cells. Cells with number 1 are no passing cells.
 	You have to find a path from cell [0,0] to cell [N-1,N-1] avoind non passing cells.
 
 */
