@@ -63,8 +63,9 @@ To see how this pseudo-code works, let's dump the initial stack:
 Stack calls to solvemaze function.
 </p>
 
-For each possible movement (indexed from 0 to 7) the code tests its feasability and then moves on to the next position. it is important to notice that the stack keeps in memory all the decision taken so far and all the values of the local variables. Here is where the magic of backtracking comes to help us.
-When ```c solvemaze(grid,current_row,current_col)``` returns false, all the candidate movements have been tried for a given position. The program then back jumps to previous decision taken and continue testing next possible movement. In this case 
+For each possible movement (indexed from 0 to 7) the code tests its feasability and then moves on to the next position. it is important to notice that the stack keeps in memory all the decisions taken so far and all the values of the local variables. Here is where the magic of backtracking comes to help us.
+When ```c solvemaze(grid,current_row,current_col)``` returns false, all the candidate movements have been tried for a given position. The program then back jumps to previous decision taken and continue testing next possible movement. In this example, in line 19 the algorythm starts testing candidates for position [6,6]. Since no movements are valid, the algorythn triggers backtracking, and control is set back to the previous state described in line 19, trying next movement for cell [5,5] , in our case it is going to test the movement indexed with 2.
+
 
 
 This piece of code has a problem: We can search again an again the same sub-problems, which is time and ressources consumming. To avoid this, we need to check if the current candidate has already been tested by other branch.
