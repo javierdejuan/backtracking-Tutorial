@@ -67,9 +67,12 @@ For each possible movement (indexed from 0 to 7) the code tests its feasability 
 When ``` solvemaze(grid,current_row,current_col)``` returns false, all the candidate movements have been tried for a given position. The program then back jumps to previous decision taken and continue testing next possible movement. In this example, in line 19 the algorythm starts testing candidates for position [6,6]. Since no movements are valid, the algorythn triggers backtracking, and control is jumps back to the previous state described in line 18, trying next movement for cell [5,5] , in our case it is going to test the movement indexed with 2.
 The tricky point here, is that you don't have to do extra work to memorize previous state, the stacks keeps for you all the information you need to restore previous decision.
 
-However this piece of code has a problem: We can search again an again the same sub-problems, which is time and ressources consumming. To avoid this, we need to check if the current candidate has already been tested by other branch.
+However this piece of code has a problem: We can search again an again the same sub-problems (the algorythm may test candidates for a given cell position tested previously) which is time and ressources consumming. To avoid this, we need to check if the current candidate has already been tested by other branch.
 
 ## The Lookup Table
+
+To solve this problem, we are going to add an extra condition for our feasability function. If the current candidate has already been tested we will skip to next candidate. This can be easily done through a lookup Table which will be an array just like grid.
+When then define a global array like this ``` int lookup[N][N]={0}```. When backtracks ocurrs we will write -1 in the current cell position. Last, in the feasibility function, we will check if the candidate has not already been tested.
 
 
 
