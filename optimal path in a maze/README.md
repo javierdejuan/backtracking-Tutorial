@@ -29,14 +29,7 @@ void minimalpath2(int grid[N][N], point& dest, point& origin, vector<point>& pat
   	// visualize so far
   	printGrid(grid, path, origin.x, origin.y, mindist,moves);
 
-	if (path.size() > mindist)
-	{
-		lookup[origin.x][origin.y] = 0;
-		grid[origin.x][origin.y] = 0;
-		path.pop_back();
-		return;
-	}
-
+	
  	// check if we are done
  	if (dest.x == origin.x&& dest.y == origin.y)
  	{
@@ -63,7 +56,7 @@ void minimalpath2(int grid[N][N], point& dest, point& origin, vector<point>& pat
   
 	for (each_possible_candidate)
 	{
-		candidate = computecandidate();
+		point candidate = findeNextCandidate();
     
 		if (isfeasable(grid, candidate))
 			minimalpath(grid, dest, candidate, path,bestsolution,moves,mindist);
@@ -80,4 +73,18 @@ void minimalpath2(int grid[N][N], point& dest, point& origin, vector<point>& pat
 }
 
 
+```
+## Heuristic Prune
+
+An optimization to previous pseudo-code can be done. Notice when a partial solution yields a cost (number of steps) higher than our actual optimal solution, we no can break its calculation.
+This can be done inserting this piece of code before spawing the combination tree again:
+
+``` C
+if (path.size() > mindist)
+{
+	lookup[origin.x][origin.y] = 0;
+	grid[origin.x][origin.y] = 0;
+	path.pop_back();
+	return;
+}
 ```
