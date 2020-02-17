@@ -10,3 +10,9 @@ The purpose of this tutorial is to find the optimal solution using recursive cal
 <p align="center">
 Finding Optimal Path in a Maze.
 </p>
+
+## General Idea
+
+´´´C
+int a = 3;
+´´´
