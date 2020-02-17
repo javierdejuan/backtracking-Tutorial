@@ -12,7 +12,7 @@ Finding Optimal Path in a Maze.
 </p>
 
 ## General Idea
+```c
+int a = 43;
 
-´´´C
-int a = 3;
-´´´
+```
