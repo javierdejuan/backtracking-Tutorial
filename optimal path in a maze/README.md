@@ -19,36 +19,34 @@ This is the pseudo code that solves the problem:
 void minimalpath2(int grid[N][N], point& dest, point& origin, vector<point>& path, vector<point>& bestsolution,int& moves,int& mindist)
 {
 	// we update our grid with the step number in its current location
-  // we also update a stl vector list which keeps track of the current path so far
+  	// we also update a stl vector list which keeps track of the current path so far
 	
-  lookup[origin.x][origin.y] = -1;
+  	lookup[origin.x][origin.y] = -1;
 	path.push_back(origin);
 	grid[origin.x][origin.y] = path.size();
 	moves++;
 	
-  // visualize so far
-	printGrid(grid, path, origin.x, origin.y, mindist,moves);
+  	// visualize so far
+  	printGrid(grid, path, origin.x, origin.y, mindist,moves);
 
 	if (path.size() > mindist)
 	{
 		lookup[origin.x][origin.y] = 0;
 		grid[origin.x][origin.y] = 0;
-
 		path.pop_back();
-
 		return;
 	}
 
- // check if we are done
- if (dest.x == origin.x&& dest.y == origin.y)
- {
+ 	// check if we are done
+ 	if (dest.x == origin.x&& dest.y == origin.y)
+ 	{
 		// we remove our last decision
 		lookup[origin.x][origin.y] = 0;
 		grid[origin.x][origin.y] = 0;
-    path.pop_back();
+    		path.pop_back();
 
-		// update best soloution so far
-    if (path.size() < mindist)
+		// update best solution so far
+    		if (path.size() < mindist)
 		{
 			mindist = path.size();
 			bestsolution = path;
@@ -56,12 +54,12 @@ void minimalpath2(int grid[N][N], point& dest, point& origin, vector<point>& pat
 
 		// keep searching
 		return;
- }
+ 	}
 
-  // we spawn out tree search here. 
-  // this for loop is going to ensure
-  // that we test all the possible 
-  // paths
+  	// we spawn out tree search here. 
+  	// this for loop is going to ensure
+  	// that we test all the possible 
+  	// paths
   
 	for (each_possible_candidate)
 	{
@@ -70,8 +68,9 @@ void minimalpath2(int grid[N][N], point& dest, point& origin, vector<point>& pat
 		if (isfeasable(grid, candidate))
 			minimalpath(grid, dest, candidate, path,bestsolution,moves,mindist);
 	}
+	
 	// backtrack happens here:
-  // if no movement is possible, revert las decision
+  	// if no movement is possible, revert las decision
   
 	lookup[origin.x][origin.y] = 0;
 	grid[origin.x][origin.y] = 0;
