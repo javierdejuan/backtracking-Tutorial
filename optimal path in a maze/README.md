@@ -74,7 +74,6 @@ void minimalpath2(int grid[N][N], point& dest, point& origin, vector<point>& pat
 
 ```
 This time, our lookup table must work in a different way. When a solution is found, we need to backtrack until a new feasable movement is found. So, we need to restore last decisions until a new branch of the tree is found. Unfortunatly, we will recompute sub-solutions, but this is the price we need to pay to get to the optimal solution.
-The backrracking xbprocess is shown in the following sequence:
 
 
 ## Heuristic Prune
