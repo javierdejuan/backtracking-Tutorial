@@ -166,6 +166,13 @@ bool BFS(int grid[N][N],  point& origin, const point& destination, int father[N]
 				father[candidate.x][candidate.y] = origin.y + N * origin.x;	
 				printf("-->[%d,%d]\n", candidate.x, candidate.y);
 				moves++;
+				
+				if (candidate.x == destination.x && candidate.y == destination.y)
+				{
+					BFS(grid, candidate, destination, father, bfsqueue, path);
+					return true;
+				}
+
 			}
 
 		}
