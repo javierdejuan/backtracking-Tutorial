@@ -28,29 +28,33 @@ Reverse this vector and you will find the path from origin to destination.
 
 In this example Grid Matrix is:
 
-```C int grid[N][N];
+```C 
+int grid[N][N];
 ```
 Grid is 0 if there is the cell is reachable and -1 if not. Every time we visited a 0 cell, we overwrite it with 2.
 
 Connection Matrix  must contains for each cell in the Grid Matrix the index of its father (ie, the cell in the Grid Matriz previous to the current according to point6))
 
-So, we need to buid a father matrix like this:
+So, we need to buid a father matrix with the same dimension as the grid matrix:
 
 `
-```C int father[N][N];
+```C 
+int father[N][N];
 ```
-Before starting the algorithm, initialize this matriz with -1. 
+Before starting the algorithm, initialize this matrix with -1. 
 
 To store each father, we can use its location in a flatten way, that is, the [row][col] element in grid can be indexed stored that way in the father matrix:
 
 
-```C int father_index = col + NUMBER_OF_ROWS_IN_GRID x row;
+```C 
+int father_index = col + NUMBER_OF_ROWS_IN_GRID x row;
 ```
 Now, to retrieve a grid element given its father_index we can do:
 
 
-```C int row = father_index / NUMBER_OF_ROWS_IN_GRID;
-     int col = father_index % NUMBER_OF_ROWS_IN_GRID;
+```C i
+int row = father_index / NUMBER_OF_ROWS_IN_GRID;
+int col = father_index % NUMBER_OF_ROWS_IN_GRID;
 ```
 
 # Pseudo code
